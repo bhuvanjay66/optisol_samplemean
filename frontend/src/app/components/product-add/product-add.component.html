@@ -1,0 +1,21 @@
+<div class="product-data-table">
+  <div class="head-section" fxLayout="row" fxLayout.xs="column">
+      <h3 fxFlex="70">Product List</h3>
+      <div fxFlex="30" class="create-action">
+        <div class="custom-file">
+            <input type="file" #fileUpload style="display: none;" (click)="fileUpload.value = null"
+            (change)="importFile($event)" accept=".csv" >
+        <button mat-flat-button color="primary" (click)="fileUpload.click()">Upload</button>
+          
+      </div>
+      </div>
+  </div>
+  <!-- <div>
+      <mat-form-field fxFlex="60" fxFlex.lt-md="100" autofilled="false" class="form-field">
+          <input type="text" matInput placeholder="Search by product name" [formControl]="searchCtr" (keyup)="emptyCheck()" (keyup.enter)="loadDataTable()">
+      </mat-form-field>
+  </div> -->
+  <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+  <div  *ngIf="confirmmsg"> Uploaded successfully
+      </div>
+</div>
